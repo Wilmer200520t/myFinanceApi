@@ -39,7 +39,7 @@ async function uno(req, res) {
     let mStrQuery = {
       tabname: "usuarios",
       condicion: {
-        idproducto: req.params.id,
+        seqno: req.params.id,
       },
     };
     success(req, res, await mResult(mStrQuery, "one"), res.statusCode);
