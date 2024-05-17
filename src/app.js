@@ -3,6 +3,7 @@ import morgan from "morgan";
 import config from "./config.js";
 import productos from "./modulos/productos/rutas.js";
 import usuarios from "./modulos/usuarios/rutas.js";
+import auth from "./modulos/auth/rutas.js";
 import { errors } from "./red/errors.js";
 const app = express();
 
@@ -17,5 +18,6 @@ app.set("port", config.app.port);
 /* Rutas */
 app.use("/api/productos", productos);
 app.use("/api/usuarios", usuarios);
+app.use("/api/auth", auth);
 app.use(errors);
 export default app;

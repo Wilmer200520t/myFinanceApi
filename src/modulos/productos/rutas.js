@@ -1,7 +1,7 @@
 import express from "express";
 import db from "../../../conexion_bd/db.js";
 import { error, success } from "../../red/response.js";
-
+import seguridad from "../../seguridad.js";
 const router = express.Router();
 let mResult = async (pStrQuerry, mTypeRequest) => {
   let mRSResult = {};
@@ -21,7 +21,7 @@ let mResult = async (pStrQuerry, mTypeRequest) => {
 //Lista de rutas para productos
 router.get("/", todos);
 router.get("/:id", uno);
-router.put("/", eliminar);
+router.put("/", seguridad ,eliminar);
 router.post("/", agregar);
 
 //Funcionalidades de rutas

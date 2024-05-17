@@ -56,10 +56,11 @@ export async function uno(tabla, condicion) {
 export async function agregar(tabla, datos) {
   try {
     console.log(`INSERT INTO ${tabla} (${Object.keys(datos).join(",")}) 
-    VALUES (${Object.values(datos).join(",")})`);
+    VALUES ('${Object.values(datos).join("','")}')`);
+
     return await mCXPool.request().query(
       `INSERT INTO ${tabla} (${Object.keys(datos).join(",")}) 
-        VALUES (${Object.values(datos).join(",")})`
+        VALUES ('${Object.values(datos).join("','").toString()}')`
     );
   } catch (err) {
     return `Error executing query: ${err}`;
